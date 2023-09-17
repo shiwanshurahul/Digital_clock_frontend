@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="hero">
+        <div class="container">
+            <div class="clock">
+                <span id="hrs">00</span> <!--creating template-> 00:00:00 -->
+                <span>:</span>
+                <span id="min">00</span>
+                <span>:</span>
+                <span id="sec">00</span>
+            </div> <!--end of class clock-->
+        </div> <!--end of class container-->
+    </div> <!--end of class hero-->
+
+    <!--Javascript to display current time-->
+    <script>
+        let hrs =document.getElementById("hrs");
+        let min =document.getElementById("min");
+        let sec =document.getElementById("sec");
+
+        setInterval(()=>{
+             let currentTime = new Date();
+        hrs.innerHTML = (currentTime.getHours()<10 ?"0":"") + currentTime.getHours();
+        min.innerHTML =(currentTime.getMinutes()<10 ?"0":"") + currentTime.getMinutes();
+        sec.innerHTML  = (currentTime.getSeconds()<10 ?"0":"") + currentTime.getSeconds();  
+        //Adding if else condition so that always 2 digit number is diplayed like 03 and not 3
+        },1000)  //1000ms =1s
+
+        // To get the date and time we need to create javascript onject "date":
+       // let currentTime =new Date();
+
+       // console.log(currentTime); -> will print current date and time in 24 hour format
+       //console.log(currentTime.getHours()); -> will print the current hour only
+       //console.log(currentTime.getMinutes());
+
+       //But we want these things to update automatically every second and not keep refreshing the web page -> use inside setInterval
+
+
+
+    </script>
+</body>
+</html>
